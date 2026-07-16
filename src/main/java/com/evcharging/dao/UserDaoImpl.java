@@ -34,4 +34,12 @@ public class UserDaoImpl implements UserDao {
 		return list1;
 	}
 
+	@Override
+	public UserModel getUserById(int id) {
+		// TODO Auto-generated method stub
+		Session session = em.unwrap(Session.class);
+
+	    return session.get(UserModel.class, id);
+	}
+
 }

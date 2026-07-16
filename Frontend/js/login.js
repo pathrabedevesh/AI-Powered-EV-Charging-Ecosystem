@@ -17,14 +17,19 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
         },
         body: JSON.stringify(user)
     })  
-    .then(response => response.text())
+    .then(response => response.json())
         
-    .then(data => { 
-        if(data === 'Success') {
-        
-            alert('Login successful!');
-            window.location.href = 'dashboard.html'; 
-        }else{
+    .then(data => {
+
+    localStorage.setItem("userId", data.id);
+    localStorage.setItem("role", data.role);
+    localStorage.setItem("fullname", data.fullname);
+
+    if(data.role === "USER"){
+        window.location.href = "userdashboard.html";
+    }else if(data.role === "OWNER"){
+        window.location.href = "stationownerdashboard.html";
+    }else {
             alert('Invalid email or password. Please try again.');
         }
     })

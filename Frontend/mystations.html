@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Stations - ElectroHub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/mystations.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <i class="fas fa-bolt"></i>
+                <span>ElectroHub</span>
+            </div>
+            <div class="navbar-menu">
+                <a href="station-owner-dashboard.html" class="nav-link">Dashboard</a>
+                <a href="mystations.html" class="nav-link active">My Stations</a>
+                <a href="#" class="nav-link">Bookings</a>
+                <a href="#" class="nav-link">Profile</a>
+            </div>
+            <div class="navbar-actions">
+                <button class="btn-icon" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="btn-primary" onclick="window.location.href='addstation.html'">
+                    <i class="fas fa-plus"></i> Add Station
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Header -->
+            <div class="page-header">
+                <div>
+                    <h1>My Stations</h1>
+                    <p>Manage and monitor all your charging stations</p>
+                </div>
+                <button class="btn-primary" onclick="window.location.href='addstation.html'">
+                    <i class="fas fa-plus"></i> Add New Station
+                </button>
+            </div>
+
+            <!-- Filter & Search -->
+            <div class="filter-section">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Search stations...">
+                </div>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="active">Active</button>
+                    <button class="filter-btn" data-filter="inactive">Inactive</button>
+                    <button class="filter-btn" data-filter="maintenance">Maintenance</button>
+                </div>
+            </div>
+
+            <!-- Stations Grid -->
+            <<div class="stations-grid" id="stationsGrid">
+
+            </div>
+
+            <!-- Empty State (Hidden) -->
+            <div class="empty-state" id="emptyState" style="display: none;">
+                <div class="empty-icon">
+                    <i class="fas fa-inbox"></i>
+                </div>
+                <h3>No Stations Found</h3>
+                <p>Start by adding your first charging station</p>
+                <button class="btn-primary" onclick="window.location.href='addstation.html'">
+                    <i class="fas fa-plus"></i> Add Station
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 ElectroHub. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact Support</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/mystations.js"></script>
+</body>
+</html>

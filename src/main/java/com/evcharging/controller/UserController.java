@@ -26,19 +26,15 @@ public class UserController {
 	}
 	
 	@PostMapping("dologin")
-	public String doLogin(@RequestBody LoginModel log) {
-		//TODO: process POST request
-		
-		String status = null;
-		
-		List<UserModel> list = userservice.doLogin(log);
-		
-		if(list!=null)
-			status = "Success";
-		else
-			status = "Failed";
-		
-		return status;
+	public UserModel doLogin(@RequestBody LoginModel log) {
+
+	    List<UserModel> list = userservice.doLogin(log);
+
+	    if (list != null && !list.isEmpty()) {
+	        return list.get(0);
+	    }
+
+	    return null;
 	}
 	
 	

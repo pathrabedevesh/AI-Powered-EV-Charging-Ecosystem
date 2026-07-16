@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Station Owner Dashboard - ElectroHub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/stationownerdashboard.css">
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <i class="fas fa-plug"></i>
+                <span>ElectroHub Pro</span>
+            </div>
+            <button class="toggle-sidebar" id="toggleSidebar">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="#" class="nav-link active" data-page="dashboard">
+                <i class="fas fa-chart-bar"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="mystations.html" class="nav-link" data-page="stations">
+                <i class="fas fa-location-dot"></i>
+                <span>My Stations</span>
+            </a>
+            <a href="addstation.html" class="nav-link" data-page="maintenance">
+                <i class="fas fa-wrench"></i>
+                <span>Add Station</span>
+            </a>
+            <a href="#" class="nav-link" data-page="bookings">
+                <i class="fas fa-list-check"></i>
+                <span>Bookings</span>
+            </a>
+            <a href="#" class="nav-link" data-page="revenue">
+                <i class="fas fa-chart-line"></i>
+                <span>Revenue</span>
+            </a>
+            <a href="#" class="nav-link" data-page="chargers">
+                <i class="fas fa-charging-station"></i>
+                <span>Chargers</span>
+            </a>
+            <a href="#" class="nav-link" data-page="users">
+                <i class="fas fa-users"></i>
+                <span>Profile</span>
+            </a>
+            
+            <a href="#" class="nav-link" data-page="settings">
+                <i class="fas fa-cog"></i>
+                <span>Logout</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="user-profile">
+                <img src="https://via.placeholder.com/40" alt="User" class="profile-pic">
+                <div>
+                    <p class="name">Green Energy Ltd.</p>
+                    <p class="email">owner@greenergy.com</p>
+                </div>
+            </div>
+            <a href="#" class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search stations, bookings...">
+            </div>
+            <div class="top-bar-actions">
+                <button class="notification-btn">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">5</span>
+                </button>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="profile-dropdown">
+                    <img src="https://via.placeholder.com/40" alt="User" class="profile-pic">
+                    <div class="dropdown-menu">
+                        <a href="#"><i class="fas fa-user"></i> Profile</a>
+                        <a href="#"><i class="fas fa-building"></i> Company</a>
+                        <a href="#"><i class="fas fa-cog"></i> Settings</a>
+                        <hr>
+                        <a href="#" class="logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard Content -->
+        <div class="dashboard-container">
+            <!-- Header -->
+            <div class="page-header">
+                <div>
+                    <h1>Station Owner Dashboard</h1>
+                    <p>Manage your charging stations and track performance</p>
+                </div>
+                <button class="btn btn-primary">
+                    <i class="fas fa-plus"></i> Add New Station
+                </button>
+            </div>
+
+            <!-- Key Metrics -->
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-icon revenue">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="metric-content">
+                        <p class="metric-label">Today's Earnings</p>
+                        <h3>$1,245.50</h3>
+                        <p class="metric-change">+12% vs yesterday</p>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-icon bookings">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <div class="metric-content">
+                        <p class="metric-label">Active Sessions</p>
+                        <h3>24</h3>
+                        <p class="metric-change">+8% vs last week</p>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-icon utilization">
+                        <i class="fas fa-plug"></i>
+                    </div>
+                    <div class="metric-content">
+                        <p class="metric-label">Utilization Rate</p>
+                        <h3>78%</h3>
+                        <p class="metric-change">Excellent performance</p>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-icon stations">
+                        <i class="fas fa-location-dot"></i>
+                    </div>
+                    <div class="metric-content">
+                        <p class="metric-label">Total Stations</p>
+                        <h3>128</h3>
+                        <p class="metric-change">Across 8 stations</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Grid -->
+            <div class="content-grid">
+                <!-- Revenue Chart -->
+                <div class="card wide">
+                    <div class="card-header">
+                        <h2>Revenue Overview</h2>
+                        <div class="header-controls">
+                            <select class="select-sm">
+                                <option>Last 7 Days</option>
+                                <option>Last 30 Days</option>
+                                <option>Last 3 Months</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <div class="chart-bar" style="height: 60%;" title="Mon: $1200"></div>
+                        <div class="chart-bar" style="height: 75%;" title="Tue: $1500"></div>
+                        <div class="chart-bar" style="height: 45%;" title="Wed: $900"></div>
+                        <div class="chart-bar" style="height: 85%;" title="Thu: $1700"></div>
+                        <div class="chart-bar" style="height: 55%;" title="Fri: $1100"></div>
+                        <div class="chart-bar" style="height: 90%;" title="Sat: $1800"></div>
+                        <div class="chart-bar active" style="height: 70%;" title="Sun: $1400"></div>
+                    </div>
+                    <div class="chart-labels">
+                        <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stations & Recent Activity -->
+            <div class="content-grid">
+                <!-- My Stations -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2>My Stations</h2>
+                        <a href="#" class="link-more">View All</a>
+                    </div>
+                    <div class="stations-list">
+                        <div class="station-item">
+                            <div class="station-header">
+                                <h4>Downtown Charging Hub</h4>
+                                <span class="badge badge-active">Active</span>
+                            </div>
+                            <p class="station-location"><i class="fas fa-map-marker-alt"></i> 123 Main St, Downtown</p>
+                            <div class="station-stats">
+                                <div class="stat">
+                                    <span class="label">Available</span>
+                                    <span class="value">12/24</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="label">Utilization</span>
+                                    <span class="value">85%</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="label">Today Revenue</span>
+                                    <span class="value">$425</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-secondary btn-small">
+                                <i class="fas fa-arrow-right"></i> Manage
+                            </button>
+                        </div>
+
+                        <div class="station-item">
+                            <div class="station-header">
+                                <h4>Tech Park Station</h4>
+                                <span class="badge badge-active">Active</span>
+                            </div>
+                            <p class="station-location"><i class="fas fa-map-marker-alt"></i> 321 Tech Park Ave</p>
+                            <div class="station-stats">
+                                <div class="stat">
+                                    <span class="label">Available</span>
+                                    <span class="value">8/20</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="label">Utilization</span>
+                                    <span class="value">72%</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="label">Today Revenue</span>
+                                    <span class="value">$385</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-secondary btn-small">
+                                <i class="fas fa-arrow-right"></i> Manage
+                            </button>
+                        </div>
+
+                        <div class="station-item">
+                            <div class="station-header">
+                                <h4>Airport Plaza</h4>
+                                <span class="badge badge-maintenance">Maintenance</span>
+                            </div>
+                            <p class="station-location"><i class="fas fa-map-marker-alt"></i> 456 Airport Blvd</p>
+                            <div class="station-stats">
+                                <div class="stat">
+                                    <span class="label">Available</span>
+                                    <span class="value">0/18</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="label">Utilization</span>
+                                    <span class="value">0%</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="label">Today Revenue</span>
+                                    <span class="value">$0</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-secondary btn-small">
+                                <i class="fas fa-wrench"></i> Maintain
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Active Sessions -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Active Sessions</h2>
+                        <span class="badge-count">24</span>
+                    </div>
+                    <div class="sessions-list">
+                        <div class="session-item">
+                            <div class="session-status">
+                                <div class="status-dot charging"></div>
+                            </div>
+                            <div class="session-info">
+                                <p class="user-name">John Doe</p>
+                                <p class="charger-info">Charger #12 • Downtown Hub</p>
+                                <p class="session-time">Started 42 mins ago</p>
+                            </div>
+                            <div class="session-amount">
+                                <span class="price">$12.50</span>
+                                <span class="progress">62%</span>
+                            </div>
+                        </div>
+
+                        <div class="session-item">
+                            <div class="session-status">
+                                <div class="status-dot charging"></div>
+                            </div>
+                            <div class="session-info">
+                                <p class="user-name">Sarah Williams</p>
+                                <p class="charger-info">Charger #7 • Tech Park</p>
+                                <p class="session-time">Started 18 mins ago</p>
+                            </div>
+                            <div class="session-amount">
+                                <span class="price">$5.80</span>
+                                <span class="progress">28%</span>
+                            </div>
+                        </div>
+
+                        <div class="session-item">
+                            <div class="session-status">
+                                <div class="status-dot charging"></div>
+                            </div>
+                            <div class="session-info">
+                                <p class="user-name">Mike Johnson</p>
+                                <p class="charger-info">Charger #24 • Downtown Hub</p>
+                                <p class="session-time">Started 5 mins ago</p>
+                            </div>
+                            <div class="session-amount">
+                                <span class="price">$1.20</span>
+                                <span class="progress">8%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Grid -->
+            <div class="content-grid">
+                <!-- Charger Status -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Charger Status</h2>
+                        <a href="#" class="link-more">Manage All</a>
+                    </div>
+                    <div class="status-overview">
+                        <div class="status-item">
+                            <span class="status-label">Active</span>
+                            <span class="status-value" style="color: #10B981;">78</span>
+                            <span class="status-percent">61%</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="status-label">Idle</span>
+                            <span class="status-value" style="color: #F59E0B;">35</span>
+                            <span class="status-percent">27%</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="status-label">Maintenance</span>
+                            <span class="status-value" style="color: #EF4444;">12</span>
+                            <span class="status-percent">9%</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="status-label">Offline</span>
+                            <span class="status-value" style="color: #6B7280;">3</span>
+                            <span class="status-percent">2%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Performance Metrics</h2>
+                    </div>
+                    <div class="metrics-list">
+                        <div class="metric-row">
+                            <span class="metric-name">Avg. Session Time</span>
+                            <span class="metric-value">1h 34m</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-name">Avg. Energy Per Session</span>
+                            <span class="metric-value">45 kWh</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-name">Peak Usage Time</span>
+                            <span class="metric-value">6:00 PM - 9:00 PM</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-name">Customer Satisfaction</span>
+                            <span class="metric-value">4.8/5.0</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-name">Maintenance Issues</span>
+                            <span class="metric-value">2 Pending</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Bookings -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>Recent Bookings</h2>
+                    <a href="#" class="link-more">View All</a>
+                </div>
+                <div class="bookings-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>Station</th>
+                                <th>Date & Time</th>
+                                <th>Duration</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>John Doe</strong></td>
+                                <td>Downtown Hub</td>
+                                <td>Today 2:30 PM</td>
+                                <td>1.5 hours</td>
+                                <td>$12.50</td>
+                                <td><span class="badge badge-success">Completed</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Sarah Williams</strong></td>
+                                <td>Tech Park</td>
+                                <td>Today 1:15 PM</td>
+                                <td>2 hours</td>
+                                <td>$18.75</td>
+                                <td><span class="badge badge-success">Completed</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Mike Johnson</strong></td>
+                                <td>Downtown Hub</td>
+                                <td>Yesterday 6:00 PM</td>
+                                <td>1 hour</td>
+                                <td>$8.25</td>
+                                <td><span class="badge badge-success">Completed</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Emma Davis</strong></td>
+                                <td>Tech Park</td>
+                                <td>Yesterday 3:45 PM</td>
+                                <td>1.75 hours</td>
+                                <td>$14.60</td>
+                                <td><span class="badge badge-success">Completed</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/station-owner-dashboard.js"></script>
+</body>
+</html>

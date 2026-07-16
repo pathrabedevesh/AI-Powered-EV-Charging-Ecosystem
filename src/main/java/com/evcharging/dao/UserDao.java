@@ -7,4 +7,6 @@ import com.evcharging.model.UserModel;
 public interface UserDao {
 	public UserModel SaveUser(UserModel user);
 	public List<UserModel> doLogin(LoginModel log);
+	
+	public UserModel getUserById(int id);
 }
