@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bookings - ElectroHub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/mybookings.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html"><i class="fas fa-bolt"></i> ElectroHub</a>
+            </div>
+            <div class="nav-links">
+                <a href="findstation.html">Find Station</a>
+                <a href="profile.html">Profile</a>
+                <a href="editprofile.html">Settings</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="bookings-header">
+            <h1>My Bookings</h1>
+            <div class="filter-tabs">
+                <button class="tab active" data-filter="all">All</button>
+                <button class="tab" data-filter="upcoming">Upcoming</button>
+                <button class="tab" data-filter="active">Active</button>
+                <button class="tab" data-filter="completed">Completed</button>
+                <button class="tab" data-filter="cancelled">Cancelled</button>
+            </div>
+        </div>
+        
+        <div id="bookingContainer"></div>
+    </div>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 ElectroHub. All rights reserved.</p>
+    </footer>
+
+    <script src="js/mybookings.js"></script>
+</body>
+</html>

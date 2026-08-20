@@ -47,6 +47,9 @@ fetch(`http://localhost:8080/myStations/${ownerId}`)
                     <b>Available :</b>
                     ${station.availableSlots}/${station.totalSlots}
                 </div>
+                <button class="delete-btn" onclick="deleteStation(${station.stationId})">
+    <i class="fas fa-trash"></i> Delete
+</button>
 
             </div>
 
@@ -62,3 +65,30 @@ fetch(`http://localhost:8080/myStations/${ownerId}`)
     console.log(error);
 
 });
+
+function deleteStation(id){
+
+    if(confirm("Are you sure you want to delete this station?")){
+
+        fetch(`http://localhost:8080/deleteStation/${id}`,{
+            method:"DELETE"
+        })
+        .then(response=>response.json())
+        .then(data=>{
+
+            alert("Station Deleted Successfully");
+
+            location.reload();
+
+        })
+        .catch(error=>{
+
+            console.log(error);
+
+            alert("Delete Failed");
+
+        });
+
+    }
+
+}

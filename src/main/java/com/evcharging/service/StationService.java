@@ -9,4 +9,6 @@ public interface StationService {
 	public StationModel saveStation(StationModel sm);
 	public List<StationModel> getAllStation();
 	List<StationModel> getMyStations(int ownerId);
+	public StationModel deleteStation(int stationId);
+	
 }

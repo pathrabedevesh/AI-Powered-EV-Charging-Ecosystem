@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Charging Stations - ElectroHub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/findstation.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-bolt"></i>
+                <span>ElectroHub</span>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="userdashboard.html" class="nav-link">Dashboard</a>
+                <a href="#" class="nav-link active">Find Stations</a>
+                <a href="#" class="nav-link">My Bookings</a>
+            </div>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="profile-btn">
+                    <i class="fas fa-user-circle"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Search & Filter Panel -->
+        <aside class="sidebar">
+            <div class="search-section">
+                <h3>Find Stations</h3>
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Search by name, city, or address...">
+                </div>
+            </div>
+
+            <!-- Filters -->
+            <div class="filter-section">
+                <h4>Filters</h4>
+
+                <!-- Distance Filter -->
+                <div class="filter-group">
+                    <label class="filter-title">
+                        <i class="fas fa-location-dot"></i>
+                        Distance
+                    </label>
+                    <div class="distance-slider">
+                        <input type="range" id="distanceSlider" min="1" max="50" value="25">
+                        <span id="distanceValue">25 km</span>
+                    </div>
+                </div>
+
+                <!-- Price Filter -->
+                <div class="filter-group">
+                    <label class="filter-title">
+                        <i class="fas fa-tag"></i>
+                        Price Range
+                    </label>
+                    <div class="price-range">
+                        <input type="number" id="priceMin" placeholder="Min" value="0">
+                        <input type="number" id="priceMax" placeholder="Max" value="10">
+                    </div>
+                </div>
+
+                <!-- Charger Type Filter -->
+                <div class="filter-group">
+                    <label class="filter-title">
+                        <i class="fas fa-plug"></i>
+                        Charger Type
+                    </label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" value="DC Fast" checked>
+                            <span>DC Fast</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" value="Level 2" checked>
+                            <span>Level 2</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" value="Level 1">
+                            <span>Level 1</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Availability Filter -->
+                <div class="filter-group">
+                    <label class="filter-title">
+                        <i class="fas fa-plug-circle-check"></i>
+                        Availability
+                    </label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="radio" name="availability" value="all" checked>
+                            <span>All Stations</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="radio" name="availability" value="available">
+                            <span>Available Only</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Rating Filter -->
+                <div class="filter-group">
+                    <label class="filter-title">
+                        <i class="fas fa-star"></i>
+                        Rating
+                    </label>
+                    <div class="rating-filter">
+                        <label class="checkbox-label">
+                            <input type="checkbox" value="4.5" checked>
+                            <span>4.5+ Stars</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" value="4">
+                            <span>4+ Stars</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" value="3">
+                            <span>3+ Stars</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="filter-actions">
+                    <button class="btn btn-primary" id="applyFilters">
+                        <i class="fas fa-sliders"></i> Apply Filters
+                    </button>
+                    <button class="btn btn-secondary" id="resetFilters">
+                        <i class="fas fa-redo"></i> Reset
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Content Area -->
+        <section class="content-area">
+            <!-- View Toggle & Sorting -->
+            <div class="controls-bar">
+                <div class="view-toggle">
+                    <button class="toggle-btn active" data-view="grid">
+                        <i class="fas fa-grip"></i>
+                    </button>
+                    <button class="toggle-btn" data-view="list">
+                        <i class="fas fa-list"></i>
+                    </button>
+                </div>
+
+                <div class="sort-dropdown">
+                    <select id="sortBy">
+                        <option value="distance">Sort by Distance</option>
+                        <option value="rating">Sort by Rating</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="available">Most Available</option>
+                    </select>
+                </div>
+
+                <div class="results-count">
+                    <span id="stationCount">24 stations found</span>
+                </div>
+            </div>
+
+            <!-- Stations Grid/List -->
+            <div class="stations-container" id="stationsContainer">
+                <!-- Station Cards will be populated here -->
+            </div>
+
+            <!-- No Results -->
+            <div class="no-results" id="noResults" style="display: none;">
+                <i class="fas fa-search"></i>
+                <h3>No stations found</h3>
+                <p>Try adjusting your filters or search criteria</p>
+            </div>
+        </section>
+
+        <!-- Map Panel -->
+        <aside class="map-panel">
+            <div class="map-header">
+                <h3>Map View</h3>
+                <button class="map-expand">
+                    <i class="fas fa-expand"></i>
+                </button>
+            </div>
+            <div class="map-container">
+                <div class="map-placeholder">
+                    <i class="fas fa-map"></i>
+                    <p>Map integration coming soon</p>
+                    <small>Stations will appear on the map as you search</small>
+                </div>
+            </div>
+            <div class="map-stats">
+                <div class="stat-item">
+                    <span class="stat-label">Nearby Stations</span>
+                    <span class="stat-value" id="nearbyCount">24</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Available Slots</span>
+                    <span class="stat-value" id="availableSlots">156</span>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Station Modal -->
+    <div class="modal" id="stationModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-header">
+                <h2 id="modalTitle">Station Details</h2>
+                <div class="modal-rating">
+                    <i class="fas fa-star"></i>
+                    <span id="modalRating">4.8</span>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="detail-section">
+                    <h4>Location</h4>
+                    <p id="modalAddress"></p>
+                </div>
+                <div class="detail-section">
+                    <h4>Charging Types</h4>
+                    <div id="modalChargers" class="charger-badges"></div>
+                </div>
+                <div class="detail-grid">
+                    <div class="detail-item">
+                        <label>Price per kWh</label>
+                        <span id="modalPrice">$2.99</span>
+                    </div>
+                    <div class="detail-item">
+                        <label>Available Slots</label>
+                        <span id="modalSlots">12/24</span>
+                    </div>
+                    <div class="detail-item">
+                        <label>Wait Time</label>
+                        <span id="modalWait">5 mins</span>
+                    </div>
+                    <div class="detail-item">
+                        <label>Reviews</label>
+                        <span id="modalReviews">234</span>
+                    </div>
+                </div>
+                <div class="detail-section">
+                    <h4>Reviews</h4>
+                    <div id="modalReviewsList" class="reviews-list"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="modalViewMore">
+                    <i class="fas fa-info-circle"></i> More Details
+                </button>
+                <button class="btn btn-primary" id="modalBook">
+                    <i class="fas fa-calendar-check"></i> Book Now
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/findstation.js"></script>
+</body>
+</html>

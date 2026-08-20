@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking History - ElectroHub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/bookinghistory.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html"><i class="fas fa-bolt"></i> ElectroHub</a>
+            </div>
+            <div class="nav-links">
+                <a href="station-owner-dashboard.html">Dashboard</a>
+                <a href="viewbookings.html">Active Bookings</a>
+                <a href="bookinghistory.html" class="active">History</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="history-header">
+            <h1>Booking History</h1>
+            <div class="filter-controls">
+                <input type="date" class="filter-input">
+                <input type="date" class="filter-input">
+                <button class="btn btn-secondary"><i class="fas fa-download"></i> Export</button>
+            </div>
+        </div>
+
+        <!-- Timeline -->
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-marker completed">
+                    <i class="fas fa-check"></i>
+                </div>
+                <div class="timeline-content">
+                    <h3>Booking #BK2025001840</h3>
+                    <p>John Doe • Downtown Hub • Slot A1</p>
+                    <div class="timeline-meta">
+                        <span><i class="fas fa-calendar"></i> Dec 16, 2025</span>
+                        <span><i class="fas fa-clock"></i> 2:00 PM - 4:00 PM</span>
+                        <span class="amount">$7.13</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker completed">
+                    <i class="fas fa-check"></i>
+                </div>
+                <div class="timeline-content">
+                    <h3>Booking #BK2025001839</h3>
+                    <p>Sarah Wilson • Airport Plaza • Slot B3</p>
+                    <div class="timeline-meta">
+                        <span><i class="fas fa-calendar"></i> Dec 15, 2025</span>
+                        <span><i class="fas fa-clock"></i> 10:00 AM - 11:00 AM</span>
+                        <span class="amount">$5.98</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker cancelled">
+                    <i class="fas fa-times"></i>
+                </div>
+                <div class="timeline-content">
+                    <h3>Booking #BK2025001838</h3>
+                    <p>Tom Brown • Downtown Hub • Slot C2</p>
+                    <div class="timeline-meta">
+                        <span><i class="fas fa-calendar"></i> Dec 14, 2025</span>
+                        <span><i class="fas fa-clock"></i> Cancelled</span>
+                        <span class="amount refunded">$4.50 (Refunded)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Load More -->
+        <div class="load-more">
+            <button class="btn btn-secondary">Load More History</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 ElectroHub. All rights reserved.</p>
+    </footer>
+
+    <script src="js/bookinghistory.js"></script>
+</body>
+</html>

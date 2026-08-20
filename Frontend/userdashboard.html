@@ -25,11 +25,11 @@
                 <i class="fas fa-chart-line"></i>
                 <span>Dashboard</span>
             </a>
-            <a href="#" class="nav-link" data-page="stations">
+            <a href="findstation.html" class="nav-link" class="nav-link" data-page="stations">
                 <i class="fas fa-map-marker-alt"></i>
                 <span>Find Stations</span>
             </a>
-            <a href="#" class="nav-link" data-page="bookings">
+            <a href="mybookings.html" class="nav-link" data-page="bookings">
                 <i class="fas fa-calendar-check"></i>
                 <span>My Bookings</span>
             </a>
@@ -45,7 +45,7 @@
                 <i class="fas fa-car"></i>
                 <span>My Vehicles</span>
             </a>
-            <a href="#" class="nav-link" data-page="settings">
+            <a href="profile.html" class="nav-link" data-page="settings">
                 <i class="fas fa-cog"></i>
                 <span>Settings</span>
             </a>
@@ -55,11 +55,12 @@
             <div class="user-profile">
                 <img src="https://via.placeholder.com/40" alt="User" class="profile-pic">
                 <div>
-                    <p class="name">Alex Johnson</p>
-                    <p class="email">alex@example.com</p>
+                    <p class="name" id="userName"></p>
+
+                    <p class="email" id="userEmail"></p>
                 </div>
             </div>
-            <a href="index.html" class="logout-btn">
+            <a  href="#" onclick="logout()" class="logout-btn">
                 <i class="fas fa-sign-out-alt"></i>
                 <span>Logout</span>
             </a>
@@ -86,10 +87,9 @@
                     <img src="https://via.placeholder.com/40" alt="User" class="profile-pic">
                     <div class="dropdown-menu">
                         <a href="#"><i class="fas fa-user"></i> Profile</a>
-                        <a href="#"><i class="fas fa-heart"></i> Favorites</a>
-                        <a href="#"><i class="fas fa-cog"></i> Settings</a>
+                        
                         <hr>
-                        <a href="index.html" class="logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        <a href="#" onclick="logout()"class="logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
                     </div>
                 </div>
             </div>
@@ -100,7 +100,7 @@
             <!-- Header -->
             <div class="page-header">
                 <div>
-                    <h1>Welcome Back, Alex! 👋</h1>
+                    <h1 id="welcomeText"></h1>
                     <p>Track your EV charging activity and manage your sessions</p>
                 </div>
                 <button class="btn btn-primary">
@@ -115,9 +115,8 @@
                         <i class="fas fa-battery-full"></i>
                     </div>
                     <div class="stat-content">
-                        <p class="stat-label">Battery Level</p>
-                        <h3>82%</h3>
-                        <p class="stat-info">Tesla Model 3</p>
+                        <h5>Total Bookings</h5>
+                        <h3 id="totalBookings"></h3>
                     </div>
                 </div>
 
@@ -126,9 +125,8 @@
                         <i class="fas fa-bolt"></i>
                     </div>
                     <div class="stat-content">
-                        <p class="stat-label">This Month</p>
-                        <h3>245 kWh</h3>
-                        <p class="stat-info">+15% vs last month</p>
+                        <h5>Pending Bookings</h5>
+                        <h3 id="pendingBookings"></h3>
                     </div>
                 </div>
 
@@ -137,9 +135,8 @@
                         <i class="fas fa-credit-card"></i>
                     </div>
                     <div class="stat-content">
-                        <p class="stat-label">Amount Spent</p>
-                        <h3>$124.50</h3>
-                        <p class="stat-info">Wallet Balance: $487.50</p>
+                        <h5>Completed Bookings</h5>
+<h3 id="completedBookings"></h3>
                     </div>
                 </div>
 
@@ -148,9 +145,8 @@
                         <i class="fas fa-chart-pie"></i>
                     </div>
                     <div class="stat-content">
-                        <p class="stat-label">Efficiency</p>
-                        <h3>94%</h3>
-                        <p class="stat-info">Excellent performance</p>
+                        <h5>Total Amount</h5>
+<h3 id="totalAmount"></h3>
                     </div>
                 </div>
             </div>
@@ -163,40 +159,15 @@
                         <h2>Active Charging Session</h2>
                         <span class="badge badge-active">In Progress</span>
                     </div>
-                    <div class="session-info">
-                        <div class="station-name">Downtown Charging Hub</div>
-                        <p class="station-location"><i class="fas fa-map-marker-alt"></i> Downtown District</p>
-                    </div>
-                    <div class="progress-section">
-                        <div class="progress-header">
-                            <span>Charge Progress</span>
-                            <span class="percentage">62%</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 62%"></div>
-                        </div>
-                    </div>
-                    <div class="session-details">
-                        <div class="detail-item">
-                            <span class="label">Time Elapsed</span>
-                            <span class="value">42 mins</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="label">Est. Time Left</span>
-                            <span class="value">25 mins</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="label">Cost So Far</span>
-                            <span class="value">$12.45</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="label">Energy</span>
-                            <span class="value">68 kWh</span>
-                        </div>
-                    </div>
-                    <button class="btn btn-danger btn-full">
-                        <i class="fas fa-stop-circle"></i> Stop Charging
-                    </button>
+                    <div id="activeBooking">
+
+    <h3>No Active Booking</h3>
+
+    <p>
+        You don't have any active charging session.
+    </p>
+
+</div>
                 </div>
 
                 <!-- Upcoming Bookings -->
@@ -206,32 +177,11 @@
                         <a href="#" class="link-more">View All</a>
                     </div>
                     <div class="bookings-list">
-                        <div class="booking-item">
-                            <div class="booking-time">
-                                <span class="date">Tomorrow</span>
-                                <span class="time">2:30 PM</span>
-                            </div>
-                            <div class="booking-details">
-                                <p class="booking-station">Tech Park Station</p>
-                                <p class="booking-info"><i class="fas fa-clock"></i> 2 hours • DC Fast</p>
-                            </div>
-                            <button class="btn-icon">
-                                <i class="fas fa-chevron-right"></i>
-                            </button>
-                        </div>
-                        <div class="booking-item">
-                            <div class="booking-time">
-                                <span class="date">Friday</span>
-                                <span class="time">6:00 PM</span>
-                            </div>
-                            <div class="booking-details">
-                                <p class="booking-station">Mall Charging Center</p>
-                                <p class="booking-info"><i class="fas fa-clock"></i> 1.5 hours • Level 2</p>
-                            </div>
-                            <button class="btn-icon">
-                                <i class="fas fa-chevron-right"></i>
-                            </button>
-                        </div>
+                        <div
+class="bookings-list"
+id="upcomingBookings">
+
+</div>
                     </div>
                 </div>
             </div>
@@ -322,39 +272,8 @@
                                 <th>Status</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>Today 2:30 PM</td>
-                                <td>Tech Park Station</td>
-                                <td>1.5 hours</td>
-                                <td>45 kWh</td>
-                                <td>$8.95</td>
-                                <td><span class="badge badge-success">Completed</span></td>
-                            </tr>
-                            <tr>
-                                <td>Yesterday 6:00 PM</td>
-                                <td>Mall Charging Center</td>
-                                <td>2 hours</td>
-                                <td>60 kWh</td>
-                                <td>$12.50</td>
-                                <td><span class="badge badge-success">Completed</span></td>
-                            </tr>
-                            <tr>
-                                <td>2 days ago</td>
-                                <td>Airport Plaza Station</td>
-                                <td>45 mins</td>
-                                <td>30 kWh</td>
-                                <td>$5.20</td>
-                                <td><span class="badge badge-success">Completed</span></td>
-                            </tr>
-                            <tr>
-                                <td>3 days ago</td>
-                                <td>Downtown Hub</td>
-                                <td>1 hour</td>
-                                <td>35 kWh</td>
-                                <td>$6.85</td>
-                                <td><span class="badge badge-success">Completed</span></td>
-                            </tr>
+                        <tbody id="transactionBody">
+
                         </tbody>
                     </table>
                 </div>
@@ -362,6 +281,6 @@
         </div>
     </main>
 
-    <script src="js/user-dashboard.js"></script>
+    <script src="js/userdashboard.js"></script>
 </body>
 </html>

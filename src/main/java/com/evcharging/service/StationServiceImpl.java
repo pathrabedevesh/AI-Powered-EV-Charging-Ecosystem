@@ -35,6 +35,13 @@ public class StationServiceImpl implements StationService {
 		// TODO Auto-generated method stub
 		return stationdao.getMyStations(ownerId);
 	}
+
+	@Transactional
+	@Override
+	public StationModel deleteStation(int stationId) {
+		// TODO Auto-generated method stub
+		return stationdao.deleteStation(stationId);
+	}
 	
 	
 

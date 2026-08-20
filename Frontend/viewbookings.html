@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Bookings - ElectroHub Station Owner</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/viewbookings.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html"><i class="fas fa-bolt"></i> ElectroHub</a>
+            </div>
+            <div class="nav-links">
+                <a href="station-owner-dashboard.html">Dashboard</a>
+                <a href="mystations.html">My Stations</a>
+                <a href="viewbookings.html" class="active">Bookings</a>
+                <a href="ownerprofile.html">Profile</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="bookings-header">
+            <h1>Station Bookings</h1>
+            <div class="filter-section">
+                <input type="text" placeholder="Search by customer name, booking ID..." class="search-input">
+                <select class="filter-select">
+                    <option value="all">All Stations</option>
+                    <option value="downtown">Downtown Hub</option>
+                    <option value="airport">Airport Plaza</option>
+                </select>
+                <select class="filter-select">
+                    <option value="today">Today</option>
+                    <option value="week">This Week</option>
+                    <option value="month">This Month</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Bookings Table -->
+        <div class="bookings-table-wrapper">
+            <table class="bookings-table">
+                <thead>
+                    <tr>
+                        <th>Booking ID</th>
+                        <th>Customer</th>
+                        <th>Station</th>
+                        <th>Slot</th>
+                        <th>Date & Time</th>
+                        <th>Duration</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="bookingTableBody">
+
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination">
+            <button class="prev"><i class="fas fa-chevron-left"></i> Previous</button>
+            <span class="page-info">Page 1 of 5</span>
+            <button class="next">Next <i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 ElectroHub. All rights reserved.</p>
+    </footer>
+
+    <script src="js/viewbookings.js"></script>
+</body>
+</html>

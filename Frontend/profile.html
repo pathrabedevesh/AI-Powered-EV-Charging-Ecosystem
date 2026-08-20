@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - ElectroHub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/profile.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html"><i class="fas fa-bolt"></i> ElectroHub</a>
+            </div>
+            <div class="nav-links">
+                <a href="findstation.html">Find Station</a>
+                <a href="mybookings.html">My Bookings</a>
+                <a href="profile.html" class="active">Profile</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="profile-wrapper">
+            <!-- Profile Header -->
+            <div class="profile-header">
+                <div class="profile-avatar">
+                    <img src="https://ui-avatars.com/api/?name=John+Doe&size=120" alt="Profile">
+                    <label class="avatar-edit">
+                        <i class="fas fa-camera"></i>
+                        <input type="file" hidden>
+                    </label>
+                </div>
+                <div class="profile-info">
+                    <h1>John Doe</h1>
+                    <p>john.doe@example.com</p>
+                    <p class="member-since"><i class="fas fa-calendar"></i> Member since Jan 2025</p>
+                </div>
+            </div>
+
+            <div class="profile-grid">
+                <!-- Main Profile Info -->
+                <div class="profile-section">
+                    <div class="section-header">
+                        <h2>Personal Information</h2>
+                        <a href="editprofile.html" class="btn-edit"><i class="fas fa-edit"></i> Edit</a>
+                    </div>
+                    <div class="info-rows">
+                        <div class="info-row">
+                            <span class="label">Email</span>
+                            <span class="value">john.doe@example.com</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="label">Phone</span>
+                            <span class="value">+1 (555) 123-4567</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="label">City</span>
+                            <span class="value">New York</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="label">Vehicle</span>
+                            <span class="value">Tesla Model 3 (Blue)</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="label">Member Type</span>
+                            <span class="badge">EV Owner</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Statistics -->
+                <div class="stats-section">
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-charging-station"></i></div>
+                        <div class="stat-content">
+                            <p>Total Bookings</p>
+                            <h3>24</h3>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-lightning-bolt"></i></div>
+                        <div class="stat-content">
+                            <p>kWh Charged</p>
+                            <h3>385</h3>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-dollar-sign"></i></div>
+                        <div class="stat-content">
+                            <p>Total Spent</p>
+                            <h3>$124.50</h3>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-leaf"></i></div>
+                        <div class="stat-content">
+                            <p>CO2 Saved</p>
+                            <h3>250 kg</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Wallet -->
+                <div class="profile-section">
+                    <h2>Wallet & Payment</h2>
+                    <div class="wallet-card">
+                        <div class="wallet-balance">
+                            <p>Available Balance</p>
+                            <h3>$124.50</h3>
+                        </div>
+                        <button class="btn btn-primary"><i class="fas fa-plus"></i> Add Funds</button>
+                    </div>
+                    <div class="saved-cards">
+                        <h3>Saved Cards</h3>
+                        <div class="card-item">
+                            <i class="fas fa-credit-card"></i>
+                            <span>Visa ending in 4242</span>
+                            <button class="btn-remove"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Preferences -->
+                <div class="profile-section">
+                    <h2>Preferences</h2>
+                    <div class="preference-item">
+                        <label>
+                            <input type="checkbox" checked>
+                            <span>Email notifications</span>
+                        </label>
+                    </div>
+                    <div class="preference-item">
+                        <label>
+                            <input type="checkbox" checked>
+                            <span>SMS notifications</span>
+                        </label>
+                    </div>
+                    <div class="preference-item">
+                        <label>
+                            <input type="checkbox">
+                            <span>Marketing emails</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Security -->
+                <div class="profile-section">
+                    <h2>Security</h2>
+                    <button class="btn-action"><i class="fas fa-lock"></i> Change Password</button>
+                    <button class="btn-action"><i class="fas fa-shield"></i> Two-Factor Authentication</button>
+                    <button class="btn-action danger"><i class="fas fa-sign-out"></i> Logout All Devices</button>
+                </div>
+
+                <!-- Danger Zone -->
+                <div class="profile-section danger-zone">
+                    <h2>Danger Zone</h2>
+                    <button class="btn-danger"><i class="fas fa-trash"></i> Delete Account</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 ElectroHub. All rights reserved.</p>
+    </footer>
+
+    <script src="js/profile.js"></script>
+</body>
+</html>

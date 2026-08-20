@@ -44,4 +44,16 @@ public class StationDaoImpl implements StationDao {
 	        .getResultList();
 	}
 
+	@Override
+	public StationModel deleteStation(int stationId) {
+		// TODO Auto-generated method stub
+		Session session = em.unwrap(Session.class);
+		StationModel station = session.get(StationModel.class, stationId);
+		
+		if(station != null)
+			session.remove(station);
+		
+		return station;
+	}
+
 }

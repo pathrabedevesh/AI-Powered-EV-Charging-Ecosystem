@@ -10,4 +10,5 @@ public interface StationDao {
 	public List<StationModel> getAllStation();
 	
 	public List<StationModel> getMyStations(int ownerId);
+	public StationModel deleteStation(int stationId);
 }
