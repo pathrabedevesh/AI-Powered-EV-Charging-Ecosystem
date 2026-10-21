@@ -23,6 +23,9 @@ public class StationModel {
 	private int totalSlots;
 	private int availableSlots;
 	private String status;
+	private double latitude;
+	private double longitude;
+
 	
 	@ManyToOne
 	@JoinColumn(name = "owner_id")
@@ -87,5 +90,18 @@ public class StationModel {
 	}
 	public void setStatus(String status) {
 		this.status = status;
+	}
+	
+	public double getLatitude() {
+	    return latitude;
+	}
+	public void setLatitude(double latitude) {
+	    this.latitude = latitude;
+	}
+	public double getLongitude() {
+	    return longitude;
+	}
+	public void setLongitude(double longitude) {
+	    this.longitude = longitude;
 	}
 }

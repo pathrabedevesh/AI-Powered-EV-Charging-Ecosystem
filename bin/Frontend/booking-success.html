@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Success - ElectroHub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/booking-success.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html"><i class="fas fa-bolt"></i> ElectroHub</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="success-wrapper">
+            <!-- Success Animation -->
+            <div class="success-animation">
+                <div class="checkmark">
+                    <div class="checkmark-circle"></div>
+                    <div class="checkmark-check"></div>
+                </div>
+            </div>
+
+            <!-- Success Message -->
+            <h1>Booking Confirmed!</h1>
+            <p class="success-message">Your charging slot has been successfully booked</p>
+
+            <!-- Booking Details -->
+            <div class="booking-card">
+                <div class="card-header">
+                    <h2>Booking Details</h2>
+                    <span class="booking-id">#BK2025001847</span>
+                </div>
+
+                <div class="booking-details">
+                    <div class="detail-row">
+                        <span class="label"><i class="fas fa-location-dot"></i> Station</span>
+                        <span class="value">Downtown Charging Hub</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="label"><i class="fas fa-map-marker-alt"></i> Address</span>
+                        <span class="value">123 Main Street, Downtown District</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="label"><i class="fas fa-calendar"></i> Date & Time</span>
+                        <span class="value">Today, 2:00 PM - 4:00 PM</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="label"><i class="fas fa-charging-station"></i> Slot</span>
+                        <span class="value">A3 (DC Fast)</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="label"><i class="fas fa-dollar-sign"></i> Amount Paid</span>
+                        <span class="value">$7.13</span>
+                    </div>
+                </div>
+
+                <div class="qr-code">
+                    <p>Scan at station to start charging</p>
+                    <div class="qr-placeholder">
+                        <i class="fas fa-qrcode"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Next Steps -->
+            <div class="next-steps">
+                <h3>Next Steps</h3>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Navigate to Station</h4>
+                            <p>Use the directions to reach Downtown Charging Hub</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Locate Slot A3</h4>
+                            <p>Find your assigned parking slot at the station</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Scan QR Code</h4>
+                            <p>Scan the QR code from your confirmation to unlock</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <a href="findstation.html" class="btn btn-secondary">
+                    <i class="fas fa-map"></i> View Station
+                </a>
+                <a href="mybookings.html" class="btn btn-primary">
+                    <i class="fas fa-list"></i> My Bookings
+                </a>
+            </div>
+
+            <!-- Confirmation Email -->
+            <div class="confirmation-email">
+                <i class="fas fa-envelope"></i>
+                <p>Confirmation details have been sent to your registered email</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 ElectroHub. All rights reserved.</p>
+    </footer>
+
+    <script src="js/booking-success.js"></script>
+</body>
+</html>

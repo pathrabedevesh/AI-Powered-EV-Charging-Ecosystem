@@ -1,0 +1,369 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard - ElectroHub</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/userdashboard.css">
+    <link rel="stylesheet" href="css/chatbot.css">
+</head>
+
+<body>
+
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <i class="fas fa-bolt"></i>
+                <span>ElectroHub</span>
+            </div>
+            <button class="toggle-sidebar" id="toggleSidebar">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="#" class="nav-link active" data-page="dashboard">
+                <i class="fas fa-chart-line"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="findstation.html" class="nav-link" data-page="stations">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Find Stations</span>
+            </a>
+
+            <a href="mybookings.html" class="nav-link" data-page="bookings">
+                <i class="fas fa-calendar-check"></i>
+                <span>My Bookings</span>
+            </a>
+
+            <a href="#" class="nav-link" data-page="history">
+                <i class="fas fa-history"></i>
+                <span>Charging History</span>
+            </a>
+
+            <a href="#" class="nav-link" data-page="wallet">
+                <i class="fas fa-wallet"></i>
+                <span>Wallet</span>
+            </a>
+
+            <a href="#" class="nav-link" data-page="vehicles">
+                <i class="fas fa-car"></i>
+                <span>My Vehicles</span>
+            </a>
+
+            <a href="profile.html" class="nav-link" data-page="settings">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="user-profile">
+                <img src="https://via.placeholder.com/40" alt="User" class="profile-pic">
+                <div>
+                    <p class="name" id="userName"></p>
+                    <p class="email" id="userEmail"></p>
+                </div>
+            </div>
+
+            <a href="#" onclick="logout()" class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search stations, bookings...">
+            </div>
+
+            <div class="top-bar-actions">
+                <button class="notification-btn">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </button>
+
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+
+                <div class="profile-dropdown">
+                    <img src="https://via.placeholder.com/40" alt="User" class="profile-pic">
+                    <div class="dropdown-menu">
+                        <a href="profile.html">
+                            <i class="fas fa-user"></i> Profile
+                        </a>
+                        <hr>
+                        <a href="#" onclick="logout()" class="logout">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard Content -->
+        <div class="dashboard-container">
+
+            <!-- Welcome Header -->
+            <div class="page-header">
+                <div>
+                    <h1 id="welcomeText">Welcome back, User!</h1>
+                    <p>Track your EV charging activity and manage your sessions.</p>
+                </div>
+
+                <button class="btn btn-primary" onclick="window.location.href='findstation.html'">
+                    <i class="fas fa-bolt"></i> Start Charging
+                </button>
+            </div>
+
+            <!-- Booking Statistics -->
+            <div class="stats-grid">
+
+                <div class="stat-card">
+                    <div class="stat-icon battery">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h5>Total Bookings</h5>
+                        <h3 id="totalBookings">0</h3>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon energy">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h5>Pending Bookings</h5>
+                        <h3 id="pendingBookings">0</h3>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon wallet">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h5>Completed Bookings</h5>
+                        <h3 id="completedBookings">0</h3>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon efficiency">
+                        <i class="fas fa-indian-rupee-sign"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h5>Total Amount</h5>
+                        <h3 id="totalAmount">₹0.00</h3>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Main Grid -->
+            <div class="content-grid">
+
+                <!-- Active Session -->
+                <div class="card active-session">
+                    <div class="card-header">
+                        <h2>Active Charging Session</h2>
+                        <span class="badge badge-active">In Progress</span>
+                    </div>
+
+                    <div id="activeBooking">
+                        <h3>No Active Booking</h3>
+                        <p>You don't have any active charging session.</p>
+                    </div>
+                </div>
+
+                <!-- Upcoming Bookings -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Upcoming Bookings</h2>
+                        <a href="mybookings.html" class="link-more">View All</a>
+                    </div>
+
+                    <div class="bookings-list" id="upcomingBookings">
+                        <p>No upcoming bookings found.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom Grid -->
+            <div class="content-grid">
+
+                <!-- Monthly Usage Chart -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Monthly Usage</h2>
+                        <select class="select-sm">
+                            <option>This Month</option>
+                            <option>Last Month</option>
+                            <option>Last 3 Months</option>
+                        </select>
+                    </div>
+
+                    <div class="chart-container">
+                        <div class="chart-bar" style="height:35%" title="Jan"></div>
+                        <div class="chart-bar" style="height:45%" title="Feb"></div>
+                        <div class="chart-bar" style="height:62%" title="Mar"></div>
+                        <div class="chart-bar" style="height:48%" title="Apr"></div>
+                        <div class="chart-bar" style="height:71%" title="May"></div>
+                        <div class="chart-bar" style="height:55%" title="Jun"></div>
+                        <div class="chart-bar" style="height:40%" title="Jul"></div>
+                        <div class="chart-bar" style="height:65%" title="Aug"></div>
+                        <div class="chart-bar" style="height:50%" title="Sep"></div>
+                        <div class="chart-bar" style="height:58%" title="Oct"></div>
+                        <div class="chart-bar" style="height:73%" title="Nov"></div>
+                        <div class="chart-bar active" style="height:80%" title="Dec"></div>
+                    </div>
+
+                    <div class="chart-labels">
+                        <span>Jan</span><span>Feb</span><span>Mar</span>
+                        <span>Apr</span><span>May</span><span>Jun</span>
+                        <span>Jul</span><span>Aug</span><span>Sep</span>
+                        <span>Oct</span><span>Nov</span><span>Dec</span>
+                    </div>
+                </div>
+
+                <!-- Recommendations and Quick Actions -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2>AI Recommendations</h2>
+                    </div>
+
+                    <div class="recommendations">
+                        <div class="recommendation-item info">
+                            <i class="fas fa-lightbulb"></i>
+                            <div>
+                                <p><strong>Save Money:</strong> Charge during off-peak hours if your station offers discounted rates.</p>
+                            </div>
+                        </div>
+
+                        <div class="recommendation-item success">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <p><strong>Tip:</strong> Check station availability before booking your charging slot.</p>
+                            </div>
+                        </div>
+
+                        <div class="recommendation-item warning">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <div>
+                                <p><strong>Reminder:</strong> Check your vehicle's battery level before starting a trip.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="quick-actions">
+                        <button class="btn btn-secondary btn-full" onclick="window.location.href='findstation.html'">
+                            <i class="fas fa-map"></i> Find Nearest Station
+                        </button>
+
+                        <button class="btn btn-secondary btn-full" onclick="window.location.href='mybookings.html'">
+                            <i class="fas fa-calendar-plus"></i> View My Bookings
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Recent Transactions -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>Recent Transactions</h2>
+                    <a href="mybookings.html" class="link-more">View All</a>
+                </div>
+
+                <div class="transactions-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Station</th>
+                                <th>Duration</th>
+                                <th>Energy</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="transactionBody">
+                            <tr>
+                                <td colspan="6">No transactions to display.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Chatbot -->
+    <button class="eh-launcher" id="ehLauncher" aria-label="Open charging assistant">
+        <i class="fas fa-comment-dots"></i>
+    </button>
+
+    <!-- Welcome and profile information -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const fullName =
+                localStorage.getItem("fullname") ||
+                localStorage.getItem("userName") ||
+                "User";
+
+            const email =
+                localStorage.getItem("email") ||
+                localStorage.getItem("userEmail") ||
+                "";
+
+            const firstName = fullName.trim().split(/\s+/)[0] || "User";
+
+            const welcome = document.getElementById("welcomeText");
+            const sidebarName = document.getElementById("userName");
+            const sidebarEmail = document.getElementById("userEmail");
+
+            if (welcome) {
+                welcome.textContent = `Welcome back, ${firstName}!`;
+            }
+
+            if (sidebarName) {
+                sidebarName.textContent = fullName;
+            }
+
+            if (sidebarEmail) {
+                sidebarEmail.textContent = email;
+            }
+        });
+
+        function logout() {
+            localStorage.removeItem("userId");
+            localStorage.removeItem("fullname");
+            localStorage.removeItem("userName");
+            localStorage.removeItem("email");
+            localStorage.removeItem("userEmail");
+            localStorage.removeItem("role");
+
+            window.location.href = "login.html";
+        }
+    </script>
+
+    <script src="js/userdashboard.js"></script>
+    <script src="js/chatbot.js"></script>
+
+</body>
+</html>

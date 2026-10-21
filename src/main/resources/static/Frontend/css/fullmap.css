@@ -1,0 +1,62 @@
+*{
+	margin:0;
+	padding:0;
+	box-sizing:border-box
+	}
+	
+html,body{
+	height:100%;
+	width:100%
+	}
+	
+#map{
+	height:100vh;
+	width:100vw
+	}
+	
+.back-btn,.locate-btn{
+	position:fixed;
+	top:20px;
+	z-index:1000;
+	background:white;
+	border:none;
+	width:48px;
+	height:48px;
+	border-radius:50%;
+	font-size:1.2rem;
+	cursor:pointer;
+	box-shadow:0 4px 15px rgba(0,0,0,.25);
+	display:flex;
+	align-items:center;
+	justify-content:center
+	}
+	
+.back-btn{
+	left:20px
+	}
+	
+.locate-btn{
+	right:20px
+	}
+	
+.back-btn:hover,.locate-btn:hover{
+	background:#f0f0f0
+	}
+	
+.user-location-icon{
+	background:transparent;
+	border:none
+	}
+	
+.user-location-dot{
+	width:20px;
+	height:20px;
+	background:#4285F4;
+	border:3px solid white;
+	border-radius:50%;
+	box-shadow:0 0 0 4px rgba(66,133,244,.25),0 2px 8px rgba(0,0,0,.4)
+	}
+	
+.leaflet-routing-container{
+	display:none
+	}

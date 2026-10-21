@@ -1,5 +1,7 @@
-package com.evcharging.model;
+	package com.evcharging.model;
 
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -16,6 +18,8 @@ public class UserModel {
 	
 	private String fullname;
 	private String email;
+	
+	@JsonIgnore
 	private String password;
 	private String phone;
 	private String role;

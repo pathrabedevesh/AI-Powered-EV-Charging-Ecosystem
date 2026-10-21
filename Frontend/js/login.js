@@ -1,87 +1,89 @@
-document.getElementById("loginForm").addEventListener("submit", function (event) {
 
+document.getElementById("loginForm").addEventListener("submit", async function (event) {
     event.preventDefault();
 
-    const email = document.getElementById("email").value;
+    const email = document.getElementById("email").value.trim();
     const password = document.getElementById("password").value;
 
-    const user = {
-        email: email,
-        password: password
-    };
+    const user = { email, password };
 
-    fetch("http://localhost:8080/dologin", {
+    try {
+        const response = await fetch("http://localhost:8080/dologin", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(user)
+        });
 
-        method: "POST",
+        const text = await response.text();
 
-        headers: {
-            "Content-Type": "application/json"
-        },
+        console.log("HTTP Status:", response.status);
+        console.log("Backend Response:", text);
 
-        body: JSON.stringify(user)
+        if (!text.trim()) {
+            throw new Error("Empty response from server. Check your Java backend.");
+        }
 
-    })
+        let data;
 
-    .then(response => response.json())
+        try {
+            data = JSON.parse(text);
+        } catch {
+            throw new Error("Invalid JSON response from server.");
+        }
 
-    .then(data => {
-
-        console.log(data);   // Check backend response
-
-        localStorage.setItem("userId", data.id);
-        localStorage.setItem("fullname", data.fullname);
-        localStorage.setItem("role", data.role);
-
-        // Save email if backend sends it
-        if (data.email) {
-            localStorage.setItem("email", data.email);
+        if (!response.ok) {
+            alert(data.message || "Login failed. Check your credentials.");
+            return;
         }
 
         if (data.role === "USER") {
+            localStorage.setItem("userId", data.id);
+            localStorage.setItem("fullname", data.fullname);
+            localStorage.setItem("role", data.role);
+
+            if (data.email) {
+                localStorage.setItem("email", data.email);
+            }
 
             window.location.href = "userdashboard.html";
 
         } else if (data.role === "OWNER") {
+            localStorage.setItem("userId", data.id);
+            localStorage.setItem("fullname", data.fullname);
+            localStorage.setItem("role", data.role);
+
+            if (data.email) {
+                localStorage.setItem("email", data.email);
+            }
 
             window.location.href = "stationownerdashboard.html";
 
         } else {
-
             alert("Invalid email or password.");
-
         }
 
-    })
-
-    .catch(error => {
-
-        console.error("Error:", error);
-        alert("Something went wrong. Please try again.");
-
-    });
-
+    } catch (error) {
+        console.error("Login Error:", error);
+        alert(error.message || "Something went wrong. Please try again.");
+    }
 });
 
 
-// ==========================
 // Show / Hide Password
-// ==========================
 
 const togglePassword = document.getElementById("togglePassword");
-const password = document.getElementById("password");
+const passwordInput = document.getElementById("password");
 
-togglePassword.addEventListener("click", function () {
-
-    if (password.type === "password") {
-
-        password.type = "text";
-        this.innerHTML = '<i class="fas fa-eye-slash"></i>';
-
-    } else {
-
-        password.type = "password";
-        this.innerHTML = '<i class="fas fa-eye"></i>';
-
-    }
-
-});
+if (togglePassword && passwordInput) {
+    togglePassword.addEventListener("click", function () {
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            this.innerHTML = '<i class="fas fa-eye-slash"></i>';
+        } else {
+            passwordInput.type = "password";
+            this.innerHTML = '<i class="fas fa-eye"></i>';
+        }
+    });
+}

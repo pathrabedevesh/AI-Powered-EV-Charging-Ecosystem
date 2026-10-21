@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - ElectroHub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/admindashboard.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar admin-nav">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html"><i class="fas fa-bolt"></i> ElectroHub Admin</a>
+            </div>
+            <div class="nav-links">
+                <a href="manageusers.html">Users</a>
+                <a href="managestations.html">Stations</a>
+                <a href="managebookings.html">Bookings</a>
+                <a href="reports.html">Reports</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container admin-container">
+        <!-- Header -->
+        <div class="dashboard-header">
+            <h1>Admin Dashboard</h1>
+            <p>System Overview & Management</p>
+        </div>
+
+        <!-- KPI Cards -->
+        <div class="kpi-grid">
+            <div class="kpi-card">
+                <div class="kpi-icon users"><i class="fas fa-users"></i></div>
+                <div class="kpi-content">
+                    <p>Total Users</p>
+                    <h3>12,547</h3>
+                    <p class="change">+345 this month</p>
+                </div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-icon stations"><i class="fas fa-charging-station"></i></div>
+                <div class="kpi-content">
+                    <p>Active Stations</p>
+                    <h3>234</h3>
+                    <p class="change">+12 this month</p>
+                </div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-icon bookings"><i class="fas fa-calendar-check"></i></div>
+                <div class="kpi-content">
+                    <p>Total Bookings</p>
+                    <h3>45,823</h3>
+                    <p class="change">+8,234 this month</p>
+                </div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-icon revenue"><i class="fas fa-dollar-sign"></i></div>
+                <div class="kpi-content">
+                    <p>Total Revenue</p>
+                    <h3>$324,500</h3>
+                    <p class="change">+$45,200 this month</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts -->
+        <div class="charts-grid">
+            <div class="chart-card">
+                <h3>Daily Revenue</h3>
+                <canvas id="revenueChart"></canvas>
+            </div>
+            <div class="chart-card">
+                <h3>User Growth</h3>
+                <canvas id="userChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Recent Activity -->
+        <div class="activity-section">
+            <h2>Recent Activity</h2>
+            <div class="activity-list">
+                <div class="activity-item">
+                    <div class="activity-icon"><i class="fas fa-user-plus"></i></div>
+                    <div class="activity-content">
+                        <p>New user registration</p>
+                        <span>Sarah Johnson registered - 2 hours ago</span>
+                    </div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                    <div class="activity-content">
+                        <p>Station offline</p>
+                        <span>Downtown Hub reported maintenance - 4 hours ago</span>
+                    </div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-icon"><i class="fas fa-building"></i></div>
+                    <div class="activity-content">
+                        <p>New station added</p>
+                        <span>Tech Park Station registered - 1 day ago</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="quick-actions">
+            <h2>Quick Actions</h2>
+            <div class="actions-grid">
+                <a href="manageusers.html" class="action-card">
+                    <i class="fas fa-users-cog"></i>
+                    <span>Manage Users</span>
+                </a>
+                <a href="managestations.html" class="action-card">
+                    <i class="fas fa-sliders-h"></i>
+                    <span>Configure Stations</span>
+                </a>
+                <a href="managebookings.html" class="action-card">
+                    <i class="fas fa-list-check"></i>
+                    <span>View Bookings</span>
+                </a>
+                <a href="reports.html" class="action-card">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Generate Reports</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 ElectroHub Admin Panel. All rights reserved.</p>
+    </footer>
+
+    <script src="js/admindashboard.js"></script>
+</body>
+</html>

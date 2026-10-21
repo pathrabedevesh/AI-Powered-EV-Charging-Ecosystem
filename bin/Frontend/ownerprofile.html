@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owner Profile - ElectroHub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/ownerprofile.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html"><i class="fas fa-bolt"></i> ElectroHub</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="profile-wrapper">
+            <!-- Profile Header -->
+            <div class="profile-header">
+                <div class="profile-avatar">
+                    <img src="https://ui-avatars.com/api/?name=Green+Energy+LLC&size=120" alt="Company">
+                    <label class="avatar-edit">
+                        <i class="fas fa-camera"></i>
+                        <input type="file" hidden>
+                    </label>
+                </div>
+                <div class="profile-info">
+                    <h1>Green Energy LLC</h1>
+                    <p>Station Owner</p>
+                    <p class="member-since"><i class="fas fa-calendar"></i> Operating since Jan 2024</p>
+                    <div class="rating">
+                        <i class="fas fa-star"></i> 4.7 (567 reviews)
+                    </div>
+                </div>
+            </div>
+
+            <div class="profile-grid">
+                <!-- Company Info -->
+                <div class="profile-section">
+                    <div class="section-header">
+                        <h2>Company Information</h2>
+                        <a href="#" class="btn-edit"><i class="fas fa-edit"></i> Edit</a>
+                    </div>
+                    <div class="info-rows">
+                        <div class="info-row">
+                            <span class="label">Company Name</span>
+                            <span class="value">Green Energy LLC</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="label">Registration ID</span>
+                            <span class="value">GE-2024-001847</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="label">Email</span>
+                            <span class="value">info@greenenergy.com</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="label">Phone</span>
+                            <span class="value">+1 (555) 987-6543</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="label">City</span>
+                            <span class="value">New York</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Statistics -->
+                <div class="stats-section">
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-charging-station"></i></div>
+                        <div class="stat-content">
+                            <p>Total Stations</p>
+                            <h3>3</h3>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-plug"></i></div>
+                        <div class="stat-content">
+                            <p>Total Chargers</p>
+                            <h3>72</h3>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-user-check"></i></div>
+                        <div class="stat-content">
+                            <p>Active Customers</p>
+                            <h3>1,247</h3>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-percentage"></i></div>
+                        <div class="stat-content">
+                            <p>Avg Utilization</p>
+                            <h3>87%</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Banking Info -->
+                <div class="profile-section">
+                    <h2>Banking Information</h2>
+                    <div class="bank-card">
+                        <div class="bank-info">
+                            <p>Bank Account</p>
+                            <h4>Account ending in 5247</h4>
+                        </div>
+                        <button class="btn-action"><i class="fas fa-edit"></i> Update</button>
+                    </div>
+                </div>
+
+                <!-- Security -->
+                <div class="profile-section">
+                    <h2>Security & Settings</h2>
+                    <button class="btn-action full"><i class="fas fa-lock"></i> Change Password</button>
+                    <button class="btn-action full"><i class="fas fa-shield"></i> Two-Factor Authentication</button>
+                    <button class="btn-action full danger"><i class="fas fa-sign-out"></i> Logout All Devices</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 ElectroHub. All rights reserved.</p>
+    </footer>
+
+    <script src="js/ownerprofile.js"></script>
+</body>
+</html>s

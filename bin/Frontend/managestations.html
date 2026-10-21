@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Stations - ElectroHub Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/managestations.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar admin-nav">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html"><i class="fas fa-bolt"></i> ElectroHub Admin</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container admin-container">
+        <div class="page-header">
+            <h1>Manage Stations</h1>
+            <button class="btn btn-primary"><i class="fas fa-plus"></i> Add Station</button>
+        </div>
+
+        <!-- Stations Cards -->
+        <div class="stations-grid">
+            <div class="station-card">
+                <div class="card-header">
+                    <h3>Downtown Charging Hub</h3>
+                    <span class="status active"><i class="fas fa-circle"></i> Active</span>
+                </div>
+                <div class="card-body">
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Main Street, New York</p>
+                    <p><i class="fas fa-plug"></i> 24 Chargers (DC Fast, Level 2)</p>
+                    <p><i class="fas fa-dollar-sign"></i> $2.99/kWh</p>
+                    <p><i class="fas fa-bar-chart"></i> 87% Utilization</p>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-action"><i class="fas fa-eye"></i> View</button>
+                    <button class="btn-action"><i class="fas fa-edit"></i> Edit</button>
+                    <button class="btn-action danger"><i class="fas fa-trash"></i> Delete</button>
+                </div>
+            </div>
+
+            <div class="station-card">
+                <div class="card-header">
+                    <h3>Airport Plaza Station</h3>
+                    <span class="status maintenance"><i class="fas fa-circle"></i> Maintenance</span>
+                </div>
+                <div class="card-body">
+                    <p><i class="fas fa-map-marker-alt"></i> 456 Airport Blvd, New York</p>
+                    <p><i class="fas fa-plug"></i> 18 Chargers (DC Fast, Level 2, Level 1)</p>
+                    <p><i class="fas fa-dollar-sign"></i> $3.49/kWh</p>
+                    <p><i class="fas fa-bar-chart"></i> 0% Utilization</p>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-action"><i class="fas fa-eye"></i> View</button>
+                    <button class="btn-action"><i class="fas fa-edit"></i> Edit</button>
+                    <button class="btn-action danger"><i class="fas fa-trash"></i> Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 ElectroHub Admin Panel. All rights reserved.</p>
+    </footer>
+
+    <script src="js/managestations.js"></script>
+</body>
+</html>

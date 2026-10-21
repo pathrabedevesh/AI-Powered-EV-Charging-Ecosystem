@@ -6,6 +6,7 @@
     <title>EV Owner Dashboard - ElectroHub</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/userdashboard.css">
+    <link rel="stylesheet" href="css/chatbot.css">
 </head>
 <body>
     <!-- Sidebar Navigation -->
@@ -25,7 +26,7 @@
                 <i class="fas fa-chart-line"></i>
                 <span>Dashboard</span>
             </a>
-            <a href="findstation.html" class="nav-link" class="nav-link" data-page="stations">
+            <a href="findstation.html" class="nav-link" data-page="stations">
                 <i class="fas fa-map-marker-alt"></i>
                 <span>Find Stations</span>
             </a>
@@ -136,7 +137,7 @@
                     </div>
                     <div class="stat-content">
                         <h5>Completed Bookings</h5>
-<h3 id="completedBookings"></h3>
+                        <h3 id="completedBookings"></h3>
                     </div>
                 </div>
 
@@ -146,7 +147,7 @@
                     </div>
                     <div class="stat-content">
                         <h5>Total Amount</h5>
-<h3 id="totalAmount"></h3>
+                        <h3 id="totalAmount"></h3>
                     </div>
                 </div>
             </div>
@@ -161,13 +162,13 @@
                     </div>
                     <div id="activeBooking">
 
-    <h3>No Active Booking</h3>
+                        <h3>No Active Booking</h3>
 
-    <p>
-        You don't have any active charging session.
-    </p>
+                        <p>
+                            You don't have any active charging session.
+                        </p>
 
-</div>
+                    </div>
                 </div>
 
                 <!-- Upcoming Bookings -->
@@ -281,6 +282,13 @@ id="upcomingBookings">
         </div>
     </main>
 
+    <!-- Chatbot icon -->
+    <button class="eh-launcher" id="ehLauncher" aria-label="Open charging assistant">
+        <i class="fas fa-comment-dots"></i>
+    </button>
+
     <script src="js/userdashboard.js"></script>
+        <script src="js/chatbot.js"></script>
+    
 </body>
 </html>
