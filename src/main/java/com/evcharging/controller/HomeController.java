@@ -8,6 +8,6 @@ public class HomeController {
 
     @GetMapping("/")
     public String home() {
-        return "redirect:/Frontend/index.html";
+        return "forward:/Frontend/index.html";
     }
 }

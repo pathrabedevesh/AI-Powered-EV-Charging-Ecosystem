@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - ElectroHub</title>
+    <title>Login - ElectroHub (Demo Project)</title>
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -18,41 +18,41 @@
                     </div>
                     <h1>ElectroHub</h1>
                 </div>
-                
+
                 <h2>Smart EV Charging</h2>
-                <p>Experience the future of electric vehicle charging with AI-powered recommendations</p>
-                
+                <p>A final-year college demo project exploring EV charging with AI-powered recommendations</p>
+
                 <div class="features-list">
                     <div class="feature-item">
                         <i class="fas fa-map-marker-alt"></i>
-                        <span>Find Nearest Stations</span>
+                        <span>Find Nearby Stations</span>
                     </div>
                     <div class="feature-item">
                         <i class="fas fa-clock"></i>
-                        <span>Real-time Availability</span>
+                        <span>Check Availability</span>
                     </div>
                     <div class="feature-item">
-                        <i class="fas fa-zap"></i>
-                        <span>Instant Booking</span>
+                        <i class="fas fa-bolt"></i>
+                        <span>Book Charging Slots</span>
                     </div>
                     <div class="feature-item">
-                        <i class="fas fa-shield-alt"></i>
-                        <span>Secure Payments</span>
+                        <i class="fas fa-chart-line"></i>
+                        <span>Track Your Usage</span>
                     </div>
                 </div>
-                
+
                 <div class="brand-stats">
                     <div class="stat">
-                        <h3>10K+</h3>
-                        <p>Active Users</p>
+                        <h3>Demo</h3>
+                        <p>Project</p>
                     </div>
                     <div class="stat">
-                        <h3>5K+</h3>
-                        <p>Charging Stations</p>
+                        <h3>Java</h3>
+                        <p>Spring Boot</p>
                     </div>
                     <div class="stat">
-                        <h3>98%</h3>
-                        <p>Uptime</p>
+                        <h3>AI</h3>
+                        <p>Recommendations</p>
                     </div>
                 </div>
             </div>
@@ -63,7 +63,7 @@
             <div class="login-form-wrapper">
                 <div class="form-header">
                     <h2>Welcome Back</h2>
-                    <p>Sign in to your ElectroHub account</p>
+                    <p>Sign in to the ElectroHub demo</p>
                 </div>
 
                 <form class="login-form" id="loginForm">
@@ -71,11 +71,12 @@
                         <label for="email">Email Address</label>
                         <div class="input-wrapper">
                             <i class="fas fa-envelope"></i>
-                            <input 
-                                type="email" 
-                                id="email" 
-                                name="email" 
-                                placeholder="you@example.com" 
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="you@example.com"
+                                autocomplete="email"
                                 required
                             >
                         </div>
@@ -85,11 +86,12 @@
                         <label for="password">Password</label>
                         <div class="input-wrapper">
                             <i class="fas fa-lock"></i>
-                            <input 
-                                type="password" 
-                                id="password" 
-                                name="password" 
-                                placeholder="Enter your password" 
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Enter your password"
+                                autocomplete="current-password"
                                 required
                             >
                             <button type="button" class="toggle-password" id="togglePassword">
@@ -98,46 +100,26 @@
                         </div>
                     </div>
 
-                    <div class="form-options">
-                        <label class="remember-me">
-                            <input type="checkbox" name="remember">
-                            <span>Remember me</span>
-                        </label>
-                        <a href="#" class="forgot-password">Forgot Password?</a>
-                    </div>
-
                     <button type="submit" class="login-btn">
                         <span>Sign In</span>
                         <i class="fas fa-arrow-right"></i>
                     </button>
                 </form>
 
-                <div class="divider">
-                    <span>or continue with</span>
-                </div>
-
-                <div class="social-login">
-                    <button class="social-btn google-btn" title="Sign in with Google">
-                        <i class="fab fa-google"></i>
-                        <span>Google</span>
-                    </button>
-                    <button class="social-btn github-btn" title="Sign in with GitHub">
-                        <i class="fab fa-github"></i>
-                        <span>GitHub</span>
-                    </button>
-                    <button class="social-btn apple-btn" title="Sign in with Apple">
-                        <i class="fab fa-apple"></i>
-                        <span>Apple</span>
-                    </button>
-                </div>
-
                 <div class="signup-prompt">
                     <p>Don&apos;t have an account? <a href="register.html">Create one</a></p>
                 </div>
 
+                <div class="back-home">
+                    <a href="index.html">
+                        <i class="fas fa-arrow-left"></i>
+                        Back to Home
+                    </a>
+                </div>
+
                 <div class="security-info">
-                    <i class="fas fa-shield-alt"></i>
-                    <p>Your login is secure and encrypted with industry-standard SSL protocol</p>
+                    <i class="fas fa-info-circle"></i>
+                    <p>This is a demo project. Please do not use a password you use on other websites.</p>
                 </div>
             </div>
         </div>
